@@ -19,6 +19,8 @@ func boot(w http.ResponseWriter, r *http.Request) {
 	case "/email":
 		fmt.Fprint(w, "This is the Email Page")
 	default:
+		// http.Error(w, "Page Not Found", 404)
+		w.WriteHeader(http.StatusNotFound)
 		fmt.Fprintf(w, "Page Not Found....")
 	}
 
